@@ -29,24 +29,10 @@ public class OrderMapRepo implements OrderRepo {
 
 
     //Custom Methods
-
     public double calculateTotal(Map<String, Map<String, Integer>> productsToBeOrdered) {
         double total = 0;
-
-
-
         return total;
 
-
-
-
-        //for (Map.Entry<String, Map<String, Integer>> entry : productsToBeOrdered.entrySet()) {
-            //System.out.println("Key: " + entry.getKey() + ", Value: " + entry.getValue());
-            //TODO:
-
-        //}
-
-        //return total;
     }
     @Override
     public void addOrder(Order order) {
