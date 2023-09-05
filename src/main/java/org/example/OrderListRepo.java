@@ -12,7 +12,7 @@ import java.util.*;
     // Schritt 2: Implementiere die OrderListRepo-Klasse mit einer Liste zur Speicherung von Bestellungen.
     //Schritt 3: Implementiere Methoden zum Hinzufügen, Entfernen und Abfragen von Bestellungen.
 
-public class OrderListRepo {
+public class OrderListRepo implements OrderRepo {
 
     // ATTRIBUTE
     Map<String,Order> orderMap = new HashMap<>();
@@ -28,9 +28,11 @@ public class OrderListRepo {
 
 
     //Custom Methods
+    @Override
     public void addOrder(Order order) {
         orderMap.put(order.id(), order);
     }
+    @Override
     public void removeOrder(String id) {
         orderMap.remove((id));
     }

@@ -37,10 +37,7 @@ public class ShopService {
         Order resultingOrder = new Order(orderId, productsToBeOrdered);
         orderListRepo.addOrder(resultingOrder);
         return resultingOrder;
-
     }
-
-    //Schritt 2: Überprüfe, ob die bestellten Produkte existieren. Wenn nicht, gebe ein System.out.println aus.
 
     public void availability(String id){
         productRepo.checkProduct(id);
