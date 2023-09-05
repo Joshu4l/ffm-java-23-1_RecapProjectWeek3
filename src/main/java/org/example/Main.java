@@ -20,6 +20,7 @@ public class Main {
 
         // Show the ProductRepo's product contents
         System.out.println(myProductRepo.products);
+        myProductRepo.checkProduct("P-0001");
 
     }
 }
