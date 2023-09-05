@@ -1,6 +1,4 @@
-package org.example;
-
-import java.util.Map;
+package de.neuefische.joshu4l;
 
 public interface OrderRepo {
 

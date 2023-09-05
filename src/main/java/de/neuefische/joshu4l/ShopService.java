@@ -1,6 +1,5 @@
-package org.example;
+package de.neuefische.joshu4l;
 
-import java.util.List;
 import java.util.Map;
 
 

@@ -1,6 +1,5 @@
-package org.example;
+package de.neuefische.joshu4l;
 import java.util.*;
-import java.util.function.ToDoubleBiFunction;
 
 /*
     Erstelle eine Klasse OrderListRepo, die eine Liste von Order-Objekten enthält.

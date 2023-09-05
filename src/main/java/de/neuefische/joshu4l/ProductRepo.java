@@ -1,4 +1,4 @@
-package org.example;
+package de.neuefische.joshu4l;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;

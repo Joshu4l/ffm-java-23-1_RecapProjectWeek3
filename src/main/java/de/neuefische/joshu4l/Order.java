@@ -1,4 +1,4 @@
-package org.example;
+package de.neuefische.joshu4l;
 
 import java.util.ArrayList;
 import java.util.List;

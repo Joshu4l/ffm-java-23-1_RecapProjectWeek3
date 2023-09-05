@@ -1,4 +1,4 @@
-package org.example;
+package de.neuefische.joshu4l;
 
 public class OrderListRepo implements OrderRepo{
 
