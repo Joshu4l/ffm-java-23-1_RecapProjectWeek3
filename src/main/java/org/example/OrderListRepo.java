@@ -37,11 +37,9 @@ public class OrderListRepo {
 
 
     //Getter&Setter
-
     public Map<String, Order> getOrderMap() {
         return orderMap;
     }
-
     public void setOrderMap(Map<String, Order> orderMap) {
         this.orderMap = orderMap;
     }
@@ -63,7 +61,6 @@ public class OrderListRepo {
     }
 
     //toString
-
     @Override
     public String toString() {
         return "OrderListRepo{" +

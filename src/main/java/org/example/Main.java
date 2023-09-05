@@ -12,7 +12,11 @@ import java.util.List;
     Schritt 3: Implementiere Methoden zum Hinzufügen, Entfernen und Abfragen von Produkten.
  */
 public class Main {
+
     public static void main(String[] args) {
+
+        // Instantiate a ShopService instance (in order to handle my order stuff)
+        ShopService myShopService = new ShopService();
 
         // Instantiate a few product objects
         Product my1stProduct = new Product("P-0001", "Guitar", "Fender", "Telecaster");
