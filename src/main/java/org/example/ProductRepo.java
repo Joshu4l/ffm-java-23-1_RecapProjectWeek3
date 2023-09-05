@@ -14,12 +14,18 @@ public class ProductRepo {
         products.put(product.id(), product);
 
     }
-
-    public void removeProduct(String id, Product product) {
-        products.remove(id,product);
+    
+    public void removeProduct(Product product) {
+        products.remove(product.id(), product);
     }
 
-    // public void checkProduct
+    public void checkProduct(String id) {
+        if (products.containsKey(id)) {
+            System.out.println("Das Product ist im Shop: " +products.get(id));
+        } else {
+            System.out.println("Kein Produkt gefunden");
+        }
+    }
 
 
     //Getter & Setter
