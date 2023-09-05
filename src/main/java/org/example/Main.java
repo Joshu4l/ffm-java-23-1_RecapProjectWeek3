@@ -1,5 +1,11 @@
 package org.example;
+/*
+    Erstelle eine Klasse ProductRepo, die eine Liste von Product-Objekten enthält.
 
+    Schritt 1: Erstelle einen Record Product mit den benötigten Attributen.
+    Schritt 2: Implementiere die ProductRepo-Klasse mit einer Liste zur Speicherung von Produkten.
+    Schritt 3: Implementiere Methoden zum Hinzufügen, Entfernen und Abfragen von Produkten.
+ */
 public class Main {
     public static void main(String[] args) {
 
