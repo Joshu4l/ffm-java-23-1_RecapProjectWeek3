@@ -17,6 +17,8 @@ public class Main {
 
         // Instrument zum ProductRepo hinzufügen
         myProductRepo.addProduct(my1stProduct);
+        // Instrument vom ProductRepo entfernen
+        // myProductRepo.removeProduct("P-0001");
 
         // Show the ProductRepo's product contents
         System.out.println(myProductRepo.products);
