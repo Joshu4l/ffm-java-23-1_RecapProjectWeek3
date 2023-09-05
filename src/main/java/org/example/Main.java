@@ -19,9 +19,9 @@ public class Main {
         ShopService myShopService = new ShopService();
 
         // Instantiate a few product objects
-        Product my1stProduct = new Product("P-0001", "Guitar", "Fender", "Telecaster");
-        Product my2ndProduct = new Product("P-0002", "Violin", "Stradivari", "Antonio");
-        Product my3rdProduct = new Product("P-0003","Triangel", "Kling", "Dreieck");
+        Product my1stProduct = new Product("P-0001", "Guitar", "Fender", "Telecaster", 300);
+        Product my2ndProduct = new Product("P-0002", "Violin", "Stradivari", "Antonio", 1000);
+        Product my3rdProduct = new Product("P-0003","Triangel", "Kling", "Dreieck", 10);
 
         // Create an empty Array List ...
         List<Product> productsToBeOrdered = new ArrayList<>();

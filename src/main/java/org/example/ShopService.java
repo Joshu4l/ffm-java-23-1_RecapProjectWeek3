@@ -1,8 +1,7 @@
 package org.example;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
+import java.util.Map;
 
 
 // IMPORTANT: we need an instance of an OrderListRepo,
@@ -20,22 +19,22 @@ public class ShopService {
 
     //ATTRIBUTES
     private ProductRepo productRepo = new ProductRepo();
-    private OrderListRepo orderListRepo = new OrderListRepo();
+    private OrderMapRepo orderMapRepo = new OrderMapRepo();
 
     // CONSTRUCTOR
-    public ShopService(ProductRepo productRepo, OrderListRepo orderListRepo) {
+    public ShopService(ProductRepo productRepo, OrderMapRepo orderMapRepo) {
         //Custom Constructor
         this.productRepo = productRepo;
-        this.orderListRepo = orderListRepo;
+        this.orderMapRepo = orderMapRepo;
     }
     public ShopService() {
         //Default Constructor
     }
 
     // CUSTOM METHODS
-    public Order placeNewOrder(String orderId, List<Product> productsToBeOrdered) {
+    public Order placeNewOrder(String orderId, Map<String, Integer> productsToBeOrdered) {
         Order resultingOrder = new Order(orderId, productsToBeOrdered);
-        orderListRepo.addOrder(resultingOrder);
+        orderMapRepo.addOrder(resultingOrder);
         return resultingOrder;
     }
 
@@ -50,7 +49,7 @@ public class ShopService {
     public String toString() {
         return "ShopService{" +
                 "productRepo=" + productRepo +
-                ", orderListRepo=" + orderListRepo +
+                ", orderListRepo=" + orderMapRepo +
                 '}';
     }
 }
