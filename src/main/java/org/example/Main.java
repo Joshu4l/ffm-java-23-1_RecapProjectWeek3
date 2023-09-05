@@ -31,8 +31,8 @@ public class Main {
         System.out.println(productsToBeOrdered);
 
         // ... and add some products
-        productsToBeOrdered.add(my1stProduct);
-        productsToBeOrdered.add(my2ndProduct);
+       // productsToBeOrdered.add(my1stProduct);
+       // productsToBeOrdered.add(my2ndProduct);
         // Now tell our ShopService to deal with our desired list of products (and under which reference he can save it)
         //TODO:
         myShopService.placeNewOrder("O-0001", productsToBeOrdered);
