@@ -37,9 +37,13 @@ public class ProductRepo {
         this.products = products;
     }
 
-    //Constructor
-    public ProductRepo() {
-        // Default Constructor
+    // Equals
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ProductRepo that = (ProductRepo) o;
+        return Objects.equals(products, that.products);
     }
     public ProductRepo(Map<String, Product> products) {
         // Custom Constructor

@@ -1,4 +1,5 @@
 package org.example;
+import java.util.*;
 
 /*
     Erstelle eine Klasse OrderListRepo, die eine Liste von Order-Objekten enthält.
@@ -8,19 +9,25 @@ package org.example;
     Schritt 3: Implementiere Methoden zum Hinzufügen, Entfernen und Abfragen von Bestellungen.
  */
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+    // Schritt 2: Implementiere die OrderListRepo-Klasse mit einer Liste zur Speicherung von Bestellungen.
+    //Schritt 3: Implementiere Methoden zum Hinzufügen, Entfernen und Abfragen von Bestellungen.
 
 public class OrderListRepo {
 
-    // Schritt 2: Implementiere die OrderListRepo-Klasse mit einer Liste zur Speicherung von Bestellungen.
+    // ATTRIBUTE
     Map<String,Order> orderMap = new HashMap<>();
 
+    //CONSTRUCTOR
+    public OrderListRepo(Map<String, Order> orderMap) {
+        // Custom Constructor
+        this.orderMap = orderMap;
+    }
+    public OrderListRepo() {
+        // Default Constructor
+    }
 
-    //Schritt 3: Implementiere Methoden zum Hinzufügen, Entfernen und Abfragen von Bestellungen.
 
+    //Custom Methods
     public void addOrder(Order order) {
         orderMap.put(order.id(), order);
     }
@@ -40,12 +47,20 @@ public class OrderListRepo {
     }
 
 
-    //Constructor
-
-    public OrderListRepo(Map<String, Order> orderMap) {
-        this.orderMap = orderMap;
+    //Equals
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        OrderListRepo that = (OrderListRepo) o;
+        return Objects.equals(orderMap, that.orderMap);
     }
 
+    //Hashcode
+    @Override
+    public int hashCode() {
+        return Objects.hash(orderMap);
+    }
 
     //toString
 

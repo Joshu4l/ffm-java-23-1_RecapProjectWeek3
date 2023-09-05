@@ -1,6 +1,8 @@
 package org.example;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 /*
     Erstelle eine Klasse ProductRepo, die eine Liste von Product-Objekten enthält.
@@ -15,23 +17,18 @@ public class Main {
         // Instantiate a few product objects
         Product my1stProduct = new Product("P-0001", "Guitar", "Fender", "Telecaster");
         Product my2ndProduct = new Product("P-0002", "Violin", "Stradivari", "Antonio");
-        //
+        Product my3rdProduct = new Product("P-0003","Triangel", "Kling", "Dreieck");
 
-        // Instantiate a new ProductRepo
-        ProductRepo myProductRepo = new ProductRepo();
+        // Create an empty Array List ...
+        List<Product> productsToBeOrdered = new ArrayList<>();
 
-        // Instrument zum ProductRepo hinzufügen
-        myProductRepo.addProduct(my1stProduct);
-        // Instrument vom ProductRepo entfernen
-        // myProductRepo.removeProduct("P-0001");
+        // ... and add some products
+        productsToBeOrdered.add(my1stProduct);
+        productsToBeOrdered.add(my2ndProduct);
 
-        // Show the ProductRepo's product contents
-        System.out.println(myProductRepo.products);
-        myProductRepo.checkProduct("P-0001");
+        // Now tell our ShopService to deal with our desired list of products (and under which reference he can save it)
+        myShopService.placeNewOrder("O-0001", productsToBeOrdered);
 
-        // Create an order object
-        Order my1stOrder =  new Order("O-0001");
-        //System.out.println(my1stOrder);
 
     }
 }
