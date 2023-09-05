@@ -34,6 +34,10 @@ public class OrderListRepo {
     public void removeOrder(String id) {
         orderMap.remove((id));
     }
+    @Override
+    public Order checkOrder(String id){
+        return orderMap.getOrDefault(id, null);
+    }
 
 
     //Getter&Setter
