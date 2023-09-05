@@ -14,9 +14,9 @@ public class ProductRepo {
         products.put(product.id(), product);
 
     }
-    
-    public void removeProduct(Product product) {
-        products.remove(product.id(), product);
+
+    public void removeProduct(String id) {
+        products.remove(id);
     }
 
     public void checkProduct(String id) {

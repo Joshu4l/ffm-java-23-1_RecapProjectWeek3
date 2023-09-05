@@ -1,4 +1,7 @@
 package org.example;
+
+import java.util.ArrayList;
+
 /*
     Erstelle eine Klasse ProductRepo, die eine Liste von Product-Objekten enthält.
 
@@ -9,8 +12,10 @@ package org.example;
 public class Main {
     public static void main(String[] args) {
 
-        // Instantiate a first product object
+        // Instantiate a few product objects
         Product my1stProduct = new Product("P-0001", "Guitar", "Fender", "Telecaster");
+        Product my2ndProduct = new Product("P-0002", "Violin", "Stradivari", "Antonio");
+        //
 
         // Instantiate a new ProductRepo
         ProductRepo myProductRepo = new ProductRepo();
@@ -23,6 +28,10 @@ public class Main {
         // Show the ProductRepo's product contents
         System.out.println(myProductRepo.products);
         myProductRepo.checkProduct("P-0001");
+
+        // Create an order object
+        Order my1stOrder =  new Order("O-0001");
+        //System.out.println(my1stOrder);
 
     }
 }
