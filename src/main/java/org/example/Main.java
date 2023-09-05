@@ -31,6 +31,5 @@ public class Main {
         // Now tell our ShopService to deal with our desired list of products (and under which reference he can save it)
         myShopService.placeNewOrder("O-0001", productsToBeOrdered);
 
-
     }
 }
