@@ -23,7 +23,6 @@ public class ProductRepo {
 
 
     //Getter & Setter
-
     public Map<String, Product> getProducts() {
         return products;
     }
@@ -33,16 +32,15 @@ public class ProductRepo {
     }
 
     //Constructor
-
+    public ProductRepo() {
+        // Default Constructor
+    }
     public ProductRepo(Map<String, Product> products) {
+        // Custom Constructor
         this.products = products;
     }
 
-    public ProductRepo() {
-    }
-
     //ToString
-
     @Override
     public String toString() {
         return "ProductRepo{" +
