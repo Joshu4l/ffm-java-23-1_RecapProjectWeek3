@@ -1,54 +1,79 @@
 package de.neuefische.joshu4l;
 
 import java.util.Map;
-
-
-// IMPORTANT: we need an instance of an OrderListRepo,
-// so that our ShopService can properly root tasks,
-// to deal with the given inputs
-
-// Ask for an orderId + a list of productsToBeOrdered, ...
-// ... actually 'package' those arguments into a final order, ...
-// ... and return it as a result
-
-//Schritt 1: Implementiere eine Methode, um eine neue Bestellung aufzugeben.
-//Schritt 2: Überprüfe, ob die bestellten Produkte existieren. Wenn nicht, gebe ein System.out.println aus.
+import java.util.Objects;
 
 public class ShopService {
 
-    //ATTRIBUTES
-    private ProductRepo productRepo = new ProductRepo();
-    private OrderMapRepo orderMapRepo = new OrderMapRepo();
+    // !IMPORTANT!
+    // In order for our ShopService to properly route CRUD-tasks towards the respective class in charge, we need:
+    private OrderMapRepo orderMapRepo = new OrderMapRepo(); // an instance of an OrderMapRepo, ...
+    private ProductRepo productRepo = new ProductRepo(); // ... as well as an instance of a ProductRepo
+    // Their methods will be invoked further down below (whereas the ShopService serves as the intermediate / broker)
+
 
     // CONSTRUCTOR
+    public ShopService() {
+        //Default Constructor
+    }
     public ShopService(ProductRepo productRepo, OrderMapRepo orderMapRepo) {
         //Custom Constructor
         this.productRepo = productRepo;
         this.orderMapRepo = orderMapRepo;
     }
-    public ShopService() {
-        //Default Constructor
-    }
+
+
+
 
     // CUSTOM METHODS
-    public Order placeNewOrder(String orderId, Map<String, Integer> productsToBeOrdered) {
+    public void createDatabaseEntry(Product product) {
+        productRepo.addProduct(product.getId(), product);
+    }
+    public void deleteDatabaseEntry(Product product){
+        productRepo.removeProduct(product.getId());
+    }
+    public Map<String, Product> showAllProducts() {
+        return productRepo.showProducts();
+    }
+    public Product queryProductsForId(String productId) {
+        return productRepo.findProductById(productId);
+    }
+
+
+
+    public void adjustProductQuantity(Product product, int pieces) {
+        productRepo.setProductQuantity(product.getId(), pieces);
+    }
+
+
+
+    public void placeNewOrder(String orderId, Map<String, Integer> productsToBeOrdered) {
         Order resultingOrder = new Order(orderId, productsToBeOrdered);
         orderMapRepo.addOrder(resultingOrder);
-        return resultingOrder;
     }
 
-    public void availability(String id){
-        productRepo.checkProduct(id);
-    }
-
+    //private boolean isAvailable(String id){
+        //productRepo.checkProduct(id);
+    //}
 
 
     // OVERRIDES
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ShopService that = (ShopService) o;
+        return Objects.equals(orderMapRepo, that.orderMapRepo) && Objects.equals(productRepo, that.productRepo);
+    }
+    @Override
+    public int hashCode() {
+        return Objects.hash(orderMapRepo, productRepo);
+    }
+    @Override
     public String toString() {
         return "ShopService{" +
-                "productRepo=" + productRepo +
-                ", orderListRepo=" + orderMapRepo +
+                "orderMapRepo=" + orderMapRepo +
+                ", productRepo=" + productRepo +
                 '}';
     }
 }

@@ -3,71 +3,35 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-//Schritt 2: Implementiere die ProductRepo-Klasse mit einer Liste zur Speicherung von Produkten.
-//Schritt 3: Implementiere Methoden zum Hinzufügen, Entfernen und Abfragen von Produkten.
-
 public class ProductRepo {
 
     // ATTRIBUTES
-    protected Map<String, Product> products = new HashMap<>();
+    protected Map<String, Product> productDatabase = new HashMap<>();
 
 
     // CONSTRUCTOR
     public ProductRepo() {
-        // Default Constructor
-    }
-    public ProductRepo(Map<String, Product> products) {
-        // Custom Constructor
-        this.products = products;
+        // Default Constructor (no other custom one needed here)
     }
 
 
     // CUSTOM METHODS
-    public void addProduct(Product product) {
-        products.put(product.id(), product);
+    public void addProduct(String id, Product product) {
+        productDatabase.put(id, product);
     }
-    public void removeProduct(String id) {
-        products.remove(id);
+    public void removeProduct(String searchKey) {
+        productDatabase.remove(searchKey);
     }
-    public void checkProduct(String id) {
-        if (products.containsKey(id)) {
-            System.out.println("Das Product ist im Shop: " +products.get(id));
-        } else {
-            System.out.println("Kein Produkt gefunden");
-        }
+    public Map<String, Product> showProducts() {
+        return productDatabase;
     }
-
-
-    // GETTER & SETTER
-    public Map<String, Product> getProducts() {
-        return products;
-    }
-    public void setProducts(Map<String, Product> products) {
-        this.products = products;
+    public Product findProductById(String searchKey) {
+        return productDatabase.getOrDefault(searchKey, null);
     }
 
-    // Equals
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        ProductRepo that = (ProductRepo) o;
-        return Objects.equals(products, that.products);
+    public void setProductQuantity(String productId, int quantity) {
+        Product desiredProduct =  productDatabase.getOrDefault(productId, null);
+        Product updatedProduct = new Product(desiredProduct.getId(), desiredProduct.getBrand(), desiredProduct.getModel(), desiredProduct.getPrice(), quantity);
+        productDatabase.put(desiredProduct.getId(), updatedProduct);
     }
-
-    // HASHCODE
-    @Override
-    public int hashCode() {
-        return Objects.hash(products);
-    }
-
-    // OVERRIDES
-    @Override
-    public String toString() {
-        return "ProductRepo{" +
-                "products=" + products +
-                '}';
-    }
-
-
 }
